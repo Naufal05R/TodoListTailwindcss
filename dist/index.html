@@ -1,0 +1,93 @@
+<!doctype html>
+<html class="bg-sky-500">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body class="bg-sky-500 bg-[url('https://images.unsplash.com/photo-1535905557558-afc4877a26fc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80')] bg-fixed">
+  <header class="bg-sky-500 bg-gradient-to-bl py-8">
+    <h1 class="text-white text-4xl text-center font-bold">BookShelfApp</h1>
+  </header>
+  <main>
+    <section id="clock" class="container pb-4 mt-6 mb-4 mx-auto w-4/5 shadow-md drop-shadow-md bg-gray-400 bg-opacity-50 backdrop-blur-sm rounded-md bg-[url('../bg/Rectangle.svg')]">
+      <h3 class="bg-sky-500 py-2 text-2xl mb-4 text-center font-bold text-white rounded-t-md">Update Time</h3>
+      <div class="flex flex-col items-center gap-2">
+        <span id="time" class="text-4xl font-normal tracking-wider text-white"></span>
+        <span id="date" class="text-lg font-normal text-white"></span>
+      </div>
+    </section>
+
+    <section class="container pb-4 mt-6 mb-4 mx-auto w-4/5 shadow-md drop-shadow-md bg-gray-400 bg-opacity-50 backdrop-blur-sm rounded-md bg-[url('../bg/Rectangle.svg')]">
+      <h3 class="bg-sky-500 py-2 text-2xl text-center font-bold text-white rounded-t-md">Tambah data Buku</h3>
+      <form id="form" action="">
+        <div class="mt-4 flex flex-col gap-2">
+          <label for="title" class="px-4 text-white font-bold">Judul buku</label>
+          <input type="text" id="title" class="rounded px-3 py-2 mx-4 placeholder:italic placeholder-zinc-300 text-neutral-100 placeholder-opacity-70 bg-opacity-25 backdrop-blur-sm bg-slate-400 outline-none focus:ring-1 focus:ring-sky-500" placeholder="Masukkan Judul...">
+        </div>
+        <div class="mt-4 flex flex-col gap-2">
+          <label for="author" class="px-4 text-white font-bold">Penulis buku</label>
+          <input type="text" id="author" class="rounded px-3 py-2 mx-4 placeholder:italic placeholder-zinc-300 text-neutral-100 placeholder-opacity-70 bg-opacity-25 backdrop-blur-sm bg-slate-400 outline-none focus:ring-1 focus:ring-sky-500" placeholder="Masukkan Penulis...">
+        </div>
+        <div class="mt-4 flex flex-col gap-2">
+          <label for="year" class="px-4 text-white font-bold">Tahun terbit</label>
+          <input type="number" id="year" class="rounded px-3 py-2 mx-4 placeholder:italic placeholder-zinc-300 text-neutral-100 placeholder-opacity-70 bg-opacity-25 backdrop-blur-sm bg-slate-400 outline-none focus:ring-1 focus:ring-sky-500" placeholder="Masukkan Tahun...">
+        </div>
+        <div class="mt-6 flex items-center">
+          <input type="checkbox" id="isread" class="px-3 py-2 ml-4 mr-2">
+          <label for="isread" class="text-white font-bold">Telah dibaca</label>
+          <button type="submit" class="px-4 py-2 font-bold text-sky-400 border border-sky-500 rounded-md ml-auto mr-4 hover:bg-sky-500 hover:text-white">Tambah</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="container pb-4 mb-4 mx-auto w-4/5 shadow-md drop-shadow-md bg-gray-400 bg-opacity-25 backdrop-blur-sm rounded-md bg-[url('../bg/Rectangle.svg')]">
+      <h3 class="bg-sky-500 mb-4 py-2 text-2xl text-center font-bold text-white rounded-t-md">Temukan buku</h3>
+      <div class="flex flex-col gap-2">
+        <label for="search" class="px-4 text-white font-bold">Cari buku</label>
+        <form action="#book-list" class="flex">
+          <input type="search" id="search" class="rounded px-3 py-2 ml-4 w-full mr-2 placeholder:italic placeholder-zinc-300 text-sky-400 placeholder-opacity-70 bg-opacity-50 backdrop-blur-sm bg-slate-400 outline-none focus:ring-1 focus:ring-sky-500" placeholder="Masukkan Judul...">
+          <button type="submit" class="p-[1.5px] ml-auto mr-4 bg-sky-500 hover:bg-opacity-50 bg-opacity-80 h-full my-auto rounded-md"><i class="bx bx-search bx-sm bx-border border-none bx-flashing-hover text-white"></i></button>
+        </form>
+      </div>
+    </section>
+
+    <section id="book-list" class="container bg-gray-400 mb-4 mx-auto w-4/5 shadow-md drop-shadow-lg bg-opacity-50 backdrop-blur-sm rounded-md bg-[url('../bg/Rectangle.svg')]">
+      <h3 class="bg-sky-500 py-2 text-2xl text-center font-bold text-white rounded-t-md">Daftar buku Saya</h3>
+
+      <div id="uncompleted-books" class="flex flex-col gap-4 py-6 px-4 mt-6">
+        <h5 class="py-2 px-4 mb-4 text-lg font-bold bg-sky-500 text-white rounded-md text-start w-fit">Buku belum dibaca</h5>
+        <article class="flex w-full mx-auto bg-opacity-40 gap-x-2 backdrop-blur-sm bg-slate-400 rounded-md">
+          <div class="flex flex-col px-2">
+            <h5 class="text-neutral-100 py-2 font-bold text-xl">Title</h5>
+            <h6 class="text-neutral-100 font-normal text-lg">Author</h6>
+            <p class="text-neutral-200 py-2 font-normal text-base">2023</p>
+          </div>
+          <button class="ml-auto bg-sky-500 hover:bg-opacity-50 bg-opacity-80 h-full my-auto rounded-full"><i class="bx bx-check bx-sm bx-border-circle border-none bx-flashing-hover text-white"></i></button>
+          <button class="mr-4 bg-rose-500 hover:bg-opacity-50 bg-opacity-80 h-full my-auto rounded-full"><i class="bx bx-trash bx-sm bx-border-circle border-none bx-flashing-hover text-white"></i></button>
+        </article>
+      </div>
+
+      <div id="completed-books" class="flex flex-col gap-4 py-6 px-4 mt-6 bg-[url('../bg/Rectangle.svg')]">
+        <h5 class="py-2 px-4 mb-4 text-lg font-bold bg-sky-500 text-white rounded-md text-start w-fit">Buku selesai dibaca</h5>
+        <article class="flex w-full mx-auto bg-opacity-40 gap-x-2 backdrop-blur-sm bg-slate-400 rounded-md">
+          <div class="flex flex-col px-2">
+            <h5 class="text-neutral-100 py-2 font-bold text-xl">Title</h5>
+            <h6 class="text-neutral-100 font-normal text-lg">Author</h6>
+            <p class="text-neutral-200 py-2 font-normal text-base">2023</p>
+          </div>
+          <button class="ml-auto bg-sky-500 hover:bg-opacity-50 bg-opacity-80 h-full my-auto rounded-full"><i class="bx bx-undo bx-sm bx-border-circle border-none bx-flashing-hover text-white"></i></button>
+          <button class="mr-4 bg-rose-500 hover:bg-opacity-50 bg-opacity-80 h-full my-auto rounded-full"><i class="bx bx-trash bx-sm bx-border-circle border-none bx-flashing-hover text-white"></i></button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-sky-500 bg-gradient-to-bl mt-6 py-4">
+    <h4 class="text-white text-xl text-center font-bold">Copyright &copy;2022 Naufal Rabbani All right Reserved</h4>
+  </footer>
+  <script src="main.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
